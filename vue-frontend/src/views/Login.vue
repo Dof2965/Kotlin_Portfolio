@@ -1,12 +1,6 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>サンプル</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link th:href="@{/css/base.css}" rel="stylesheet" type="text/css">
-</head>
-<body>
-<div class="common-header">
+<template>
+    <div class="profile">
+        <div class="common-header">
     <div class="common-header">
             <ul>
                 <li><a href="profile">プロフィール</a></li>
@@ -40,5 +34,6 @@
 </div>
 <div class="footer"></div>
 <div><a href="../">HOME</a></div>
-</body>
-</html>
+    </div>
+</template>
+    

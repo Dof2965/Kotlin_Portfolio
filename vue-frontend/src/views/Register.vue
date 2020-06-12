@@ -1,13 +1,6 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>サンプル</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link th:href="@{/css/base.css}" rel="stylesheet" type="text/css">
-</head>
-<body>
+<template>
+    <div class="register">
 <div class="common-header">
-    <div class="common-header">
             <ul>
                 <li><a href="profile">プロフィール</a></li>
                 <li><a href="sampleCode">サンプルサイト</a></li>
@@ -17,7 +10,6 @@
                 <!-- 多言語対応予定地 -->
                 <!-- <li><select><option></option></select> </li> -->
             </ul>
-    </div>
 </div>
 <div class="header-content">
     <div class="header-content-logo">
@@ -44,7 +36,8 @@
             <button type="submit" name="register" value="登録" onclick="">登録</button>
         </div>
     </div>
+</div>
 <div class="footer"></div>
 <div><a href="../">HOME</a></div>
-</body>
-</html>
+    </div>
+</template>
