@@ -8,6 +8,6 @@
         </div>
         <h1>PROFILE</h1>
         <h1></h1>
-        <div><a href="../">HOME</a></div>
+        <div><router-link to="/">Home</router-link></div>
     </div>
 </template>

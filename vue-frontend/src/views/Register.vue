@@ -1,16 +1,5 @@
 <template>
     <div class="register">
-<div class="common-header">
-            <ul>
-                <li><a href="profile">プロフィール</a></li>
-                <li><a href="sampleCode">サンプルサイト</a></li>
-                <li class="right-content">
-                    <a href="/login">ログイン</a>
-                </li>
-                <!-- 多言語対応予定地 -->
-                <!-- <li><select><option></option></select> </li> -->
-            </ul>
-</div>
 <div class="header-content">
     <div class="header-content-logo">
         <h1>ロゴ</h1>
@@ -38,6 +27,6 @@
     </div>
 </div>
 <div class="footer"></div>
-<div><a href="../">HOME</a></div>
+<div><router-link to="/">Home</router-link></div>
     </div>
 </template>
