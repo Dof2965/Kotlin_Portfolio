@@ -12,6 +12,9 @@ data class CustomerEntity (
         @Column(name = "name", length = 100, nullable = false)
         val name: String,
 
+        @Column(name = "password", length = 100, nullable = false)
+        val password: String,
+
         @Column(name = "mail", length = 256)
         val mail: String? = null
 )
