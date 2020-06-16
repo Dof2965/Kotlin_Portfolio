@@ -3,6 +3,8 @@
     <div class="header-content">
       <div class="header-content-logo">
         <h1>ロゴ</h1>
+        {{ this.$accessor.customer.response }}
+        {{ response }}
       </div>
     </div>
     <div class="body-content">
@@ -72,14 +74,15 @@ export default {
     return {
       name: '',
       password: '',
-      mail: 'sample@sample.co.jp'
+      mail: 'sample@sample.co.jp',
+      response: []
     }
   },
   methods: {
     register () {
-      this.$accessor.customer.setName(this.name)
-      this.$accessor.customer.setPassword(this.password)
-      this.$accessor.customer.setmail(this.mail)
+      // this.$accessor.customer.setName(this.name)
+      // this.$accessor.customer.setPassword(this.password)
+      // this.$accessor.customer.setmail(this.mail)
       this.$accessor.customer.loadCustomer()
     }
   }

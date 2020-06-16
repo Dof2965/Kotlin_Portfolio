@@ -1,5 +1,5 @@
-cd vue-frontend
+cd nuxt-frontend
 
-npm run serve
+npm run dev
 
 pause

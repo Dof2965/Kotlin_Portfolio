@@ -5,10 +5,12 @@ export const state = () => ({
   name: '',
   password: '',
   mail: '',
-  result: false
+  result: false,
+  response: []
 })
 
 export const getters = getterTree(state, {
+  response: state => state.response
   // fullName: state => state.firstName + ' ' + state.lastName,
 })
 
@@ -24,6 +26,9 @@ export const mutations = mutationTree(state, {
   },
   setResult (state, newValue: boolean) {
     state.result = newValue
+  },
+  setResponse (state, { response }) {
+    state.response = response
   }
 })
 
@@ -43,15 +48,28 @@ export const actions = actionTree(
     registermail ({ commit }, newmail: string) {
       commit('setmail', newmail)
     },
-    async loadCustomer () {
-      // TODO: URL -> define const params or property file.
-      await axios.post('http://localhost:8888/api/v1/customer',
-        { name: 'customer01', password: 'qwerty', mail: 'hoge@huga' })
-        .then(() => {
-          this.commit('setResult', true)
+    registerResult ({ commit }, res: boolean) {
+      commit('setResult', res)
+    },
+    async loadCustomer ({ commit }) {
+      await axios.get('http://localhost:8080/api/v1/customer')
+        .then((resp) => {
+          console.log(resp)
+          commit('setResponse', { response: resp.data })
         })
-        .catch(() => {
-          this.commit('setResult', false)
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    async registerCustomer () {
+      // TODO: URL -> define const params or property file.
+      await axios.post('http://localhost:8080/api/v1/customer',
+        { name: 'customer01', password: 'qwerty', mail: 'hoge@huga' })
+        .then((resp) => {
+          console.log(resp)
+        })
+        .catch((err) => {
+          console.log(err)
         })
     }
   }
