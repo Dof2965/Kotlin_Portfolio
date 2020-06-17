@@ -23,12 +23,18 @@
         >
           GitHub
         </a>
-        <button
+        <a
+          href="http://localhost:3000/register"
           class="button--grey"
-          onclick="this.$accessor.resetEmail()"
         >
-          button
-        </button>
+          register
+        </a>
+        <a
+          href="http://localhost:8080/api/v1/customer"
+          class="button--grey"
+        >
+          customer
+        </a>
       </div>
     </div>
   </div>

@@ -4,40 +4,39 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Configuration
-import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
-import org.springframework.security.config.annotation.web.builders.WebSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+import org.springframework.security.web.header.HeaderWriter
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
-
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
 
 @Configuration
 @EnableWebSecurity
-@ConfigurationProperties(prefix = "security")
 class SecurityConfig : WebSecurityConfigurerAdapter() {
-    // 許可するドメイン
-    lateinit var corsClientUrls: List<String>
-    val logger: Logger = LoggerFactory.getLogger(WebSecurityConfigurerAdapter::class.java)
-
     override fun configure(http: HttpSecurity) {
-        // Basic認証無効化
         http.authorizeRequests()
-                .antMatchers("/","/register")
+                .antMatchers("/")
                     .permitAll()
             .and()
                 .cors()
-                    .configurationSource(corsConfigurationSource())
+//                    .configurationSource(corsConfigurationSource())
+                    .disable()
+//            .and()
+//                .csrf()
+//                    .disable()
     }
 
     private fun corsConfigurationSource(): CorsConfigurationSource {
         val corsConfiguration = CorsConfiguration()
-        corsConfiguration.addAllowedOrigin(CorsConfiguration.ALL);
-        corsConfiguration.addAllowedMethod(CorsConfiguration.ALL)
+
+        corsConfiguration.addAllowedOrigin("http://localhost:3000");
+        corsConfiguration.addAllowedMethod("DELETE, PUT, GET, POST")
         corsConfiguration.addAllowedHeader(CorsConfiguration.ALL)
-        // corsConfiguration.allowCredentials = true;
+        corsConfiguration.maxAge = 3600
 
         val corsConfigurationSource = UrlBasedCorsConfigurationSource()
         corsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration)
