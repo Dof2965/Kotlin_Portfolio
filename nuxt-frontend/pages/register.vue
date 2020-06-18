@@ -80,10 +80,10 @@ export default {
   },
   methods: {
     register () {
-      // this.$accessor.customer.setName(this.name)
-      // this.$accessor.customer.setPassword(this.password)
-      // this.$accessor.customer.setmail(this.mail)
-      this.$accessor.customer.loadCustomer()
+      this.$accessor.customer.setName(this.name)
+      this.$accessor.customer.setPassword(this.password)
+      this.$accessor.customer.setmail(this.mail)
+      this.$accessor.customer.registerCustomer()
     }
   }
 }

@@ -29,12 +29,6 @@
         >
           register
         </a>
-        <a
-          href="http://localhost:8080/api/v1/customer"
-          class="button--grey"
-        >
-          customer
-        </a>
       </div>
     </div>
   </div>
@@ -47,11 +41,6 @@ import Logo from '~/components/Logo.vue'
 export default Vue.extend({
   components: {
     Logo
-  },
-  data () {
-  },
-  created () {
-
   }
 })
 </script>

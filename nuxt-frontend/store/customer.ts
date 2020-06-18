@@ -64,7 +64,7 @@ export const actions = actionTree(
     async registerCustomer () {
       // TODO: URL -> define const params or property file.
       await axios.post('http://localhost:8080/api/v1/customer',
-        { name: 'customer01', password: 'qwerty', mail: 'hoge@huga' })
+        { name: this.state.name, password: this.state.password, mail: this.state.mail })
         .then((resp) => {
           console.log(resp)
         })
