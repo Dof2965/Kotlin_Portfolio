@@ -80,10 +80,11 @@ export default {
   },
   methods: {
     register () {
+      const payload = { name: this.name, password: this.password, mail: this.mail }
       this.$accessor.customer.setName(this.name)
       this.$accessor.customer.setPassword(this.password)
       this.$accessor.customer.setmail(this.mail)
-      this.$accessor.customer.registerCustomer()
+      this.$accessor.customer.registerCustomer(payload)
     }
   }
 }

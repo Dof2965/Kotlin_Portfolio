@@ -11,7 +11,6 @@ export const state = () => ({
 
 export const getters = getterTree(state, {
   response: state => state.response
-  // fullName: state => state.firstName + ' ' + state.lastName,
 })
 
 export const mutations = mutationTree(state, {
@@ -61,12 +60,14 @@ export const actions = actionTree(
           console.log(err)
         })
     },
-    async registerCustomer () {
+    async registerCustomer ({ commit }, payload) {
       // TODO: URL -> define const params or property file.
       await axios.post('http://localhost:8080/api/v1/customer',
-        { name: this.state.name, password: this.state.password, mail: this.state.mail })
+        payload)
+        // { name: this.state.name, password: this.state.password, mail: this.state.mail })
         .then((resp) => {
           console.log(resp)
+          commit('setResponse', { response: resp.data })
         })
         .catch((err) => {
           console.log(err)
