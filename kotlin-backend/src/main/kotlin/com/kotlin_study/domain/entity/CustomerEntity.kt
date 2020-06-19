@@ -16,5 +16,11 @@ data class CustomerEntity (
         val password: String,
 
         @Column(name = "mail", length = 256)
-        val mail: String? = null
+        val mail: String? = null,
+
+        @Column(name = "created_at")
+        val created_at: String? = null,
+
+        @Column(name = "updated_at")
+        val updated_at: String? = null
 )

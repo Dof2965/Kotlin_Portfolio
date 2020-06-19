@@ -33,15 +33,13 @@
           >
         </div>
         <div class="body-content-button">
-          <button type="submit" name="login" value="login" onclick="">
+          <button type="submit" name="login" value="login" onclick="login()">
             ログイン
           </button>
         </div>
       </div>
     </div>
-    <div class="footer">
-      {{ getCustomers }}
-    </div>
+    <div class="footer" />
     <div>
       <router-link to="/">
         Home
@@ -50,24 +48,20 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
-  /*
-    算出プロパティ ※計算機能付きのプロパティ
-    データそのものに何らかの処理を与えたものをプロパティにしたい(インスタンスに持たせて参照できるようにしたい)ときに用いる
-    計算結果をキャッシュする
-    一度計算を行った場合、再度関数を呼び出しても依存しているデータに変更がない限りキャッシュを返す
-    プロパティなので呼び出し時の()はいらない
-    getterとsetterが使える
-  */
-  computed: {
+  data () {
+    return {
+      name: '',
+      password: '',
+      response: []
+    }
   },
-  mounted () {
-  },
-  /*
-    計算結果をキャッシュしないので、一度計算を行った場合も関数を呼び出される度に再計算を行う
-  */
   methods: {
+    login () {
+      const payload = { name: this.name, password: this.password }
+      // this.$accessor.customer.registerCustomer(payload)
+    }
   }
 }
 </script>
